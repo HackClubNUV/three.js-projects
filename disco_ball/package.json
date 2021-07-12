@@ -5,11 +5,8 @@
   "main": "index.html",
   "scripts": {
     "start": "parcel serve index.html",
-    "prebuild-dev": "shx rm -rf dist/*",
-    "build-dev": "parcel build index.html --no-minify --public-url ./",
-    "prebuild": "shx rm -rf dist/*",
-    "build": "parcel build index.html --public-url ./",
-    "push-gh-pages": "push-dir --dir=dist --branch=gh-pages --cleanup --verbose"
+    "predeploy": "rm -rf dist && parcel build index.html",
+    "deploy": "gh-pages -d dist"
   },
   "keywords": [],
   "author": "",
@@ -18,7 +15,7 @@
     "three": "^0.130.1"
   },
   "devDependencies": {
-    "parcel-bundler": "^1.12.5",
-    "shx": "^0.3.3"
+    "gh-pages": "^3.2.3",
+    "parcel-bundler": "^1.12.5"
   }
 }
